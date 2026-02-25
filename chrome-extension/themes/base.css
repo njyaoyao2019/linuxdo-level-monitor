@@ -1,0 +1,877 @@
+/**
+ * Linux.do 等级监控 - 基础样式
+ * 所有主题共享的基础结构样式
+ */
+
+/* ==================== 浮动容器 ==================== */
+.ld-floating-container {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 99999;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ==================== 浮动按钮 ==================== */
+.ld-floating-btn {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e5e7eb;
+    border-radius: 8px 0 0 8px;
+    border-right: none;
+    padding: 8px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 42px;
+}
+
+.ld-floating-btn:hover {
+    width: 50px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.ld-btn-icon {
+    width: 16px;
+    height: 16px;
+    color: #6b7280;
+}
+
+.ld-btn-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.ld-btn-level {
+    font-size: 12px;
+    font-weight: bold;
+    color: #ea580c;
+}
+
+.ld-btn-progress-bar {
+    width: 28px;
+    height: 3px;
+    background: #e5e7eb;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.ld-btn-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #fb923c, #ea580c);
+    border-radius: 2px;
+    transition: width 0.5s ease;
+    width: 0%;
+}
+
+.ld-btn-stats {
+    font-size: 9px;
+    color: #6b7280;
+}
+
+.ld-btn-credit {
+    font-size: 8px;
+    color: #0984e3;
+    font-weight: 500;
+    padding-top: 2px;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    text-align: center;
+}
+
+/* ==================== 弹出窗口 ==================== */
+.ld-popup {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-right: 12px;
+    width: 360px;
+    max-height: 85vh;  /* 增加最大高度 */
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e5e7eb;
+    opacity: 0;
+    transform: translate(20px, -50%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ld-popup.show {
+    opacity: 1;
+    transform: translate(0, -50%);
+    pointer-events: auto;
+}
+
+.ld-popup-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 85vh;
+    overflow: hidden;
+}
+
+/* ==================== 标签栏 ==================== */
+.ld-tabs {
+    display: flex;
+    background: #f3f4f6;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 4px;
+    gap: 4px;
+}
+
+.ld-tab {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ld-tab:hover {
+    color: #374151;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.ld-tab.active {
+    color: #ea580c;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ld-tab-content {
+    flex: 1;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    min-height: 0;  /* 关键：允许 flex 子元素收缩 */
+}
+
+.ld-loading {
+    padding: 40px;
+    text-align: center;
+    color: #6b7280;
+}
+
+/* ==================== 弹窗头部 ==================== */
+.ld-popup-header {
+    padding: 16px;
+    background: linear-gradient(135deg, #fff7ed, #ffedd5);
+    border-bottom: 1px solid #fed7aa;
+}
+
+.ld-popup-header.perfect {
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+    border-bottom-color: #a7f3d0;
+}
+
+.ld-user-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.ld-username {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.ld-level-badge {
+    font-size: 12px;
+    padding: 4px 10px;
+    background: linear-gradient(135deg, #fb923c, #ea580c);
+    color: white;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.ld-popup-header.perfect .ld-level-badge {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.ld-progress-section {
+    margin-top: 8px;
+}
+
+.ld-progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+.ld-progress-bar {
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.ld-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #fb923c, #ea580c);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.ld-progress-fill.perfect {
+    background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6);
+    background-size: 200% 100%;
+    animation: progressShine 2s linear infinite;
+}
+
+@keyframes progressShine {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ==================== 弹窗主体 ==================== */
+.ld-popup-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+}
+
+.ld-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ld-detail-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.ld-detail-item:hover {
+    background: #f3f4f6;
+    transform: translateX(2px);
+}
+
+.ld-detail-item.passed {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+.ld-detail-item.failed {
+    background: #fef2f2;
+    border-color: #fecaca;
+}
+
+.ld-detail-label {
+    font-size: 12px;
+    color: #374151;
+    flex: 1;
+}
+
+.ld-detail-value {
+    font-size: 13px;
+    font-weight: 500;
+    margin-right: 8px;
+}
+
+.ld-detail-current {
+    color: #1f2937;
+}
+
+.ld-detail-item.passed .ld-detail-current {
+    color: #059669;
+}
+
+.ld-detail-item.failed .ld-detail-current {
+    color: #dc2626;
+}
+
+.ld-detail-separator {
+    color: #9ca3af;
+    margin: 0 2px;
+}
+
+.ld-detail-required {
+    color: #6b7280;
+}
+
+.ld-detail-status {
+    font-size: 14px;
+    width: 20px;
+    text-align: center;
+}
+
+.ld-detail-item.passed .ld-detail-status {
+    color: #10b981;
+}
+
+.ld-detail-item.failed .ld-detail-status {
+    color: #ef4444;
+}
+
+/* ==================== 弹窗底部 ==================== */
+.ld-popup-footer {
+    padding: 12px 16px;
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ld-update-time {
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+.ld-refresh-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #374151;
+    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.ld-refresh-btn:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.ld-refresh-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ==================== 滚动条样式 ==================== */
+.ld-popup-body::-webkit-scrollbar,
+.ld-credit-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ld-popup-body::-webkit-scrollbar-track,
+.ld-credit-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ld-popup-body::-webkit-scrollbar-thumb,
+.ld-credit-body::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+}
+
+.ld-popup-body::-webkit-scrollbar-thumb:hover,
+.ld-credit-body::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* ==================== 默认主题 3级庆祝样式 ==================== */
+
+/* 弹窗整体庆祝边框效果 */
+.ld-theme-default .ld-popup:has(.ld-popup-header.perfect) {
+    border: 2px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(45deg, #f59e0b, #8b5cf6, #ec4899, #10b981, #f59e0b);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    animation: celebrationBorderRotate 4s linear infinite;
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.3), 0 0 60px rgba(236, 72, 153, 0.2);
+}
+
+.ld-theme-default .ld-popup-header.perfect {
+    background: linear-gradient(135deg, #fef3c7, #e0e7ff, #fce7f3);
+    border-bottom-color: #fbbf24;
+    position: relative;
+    overflow: visible;
+}
+
+/* 流动的彩虹边框效果 */
+.ld-theme-default .ld-popup-header.perfect::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, #f59e0b, #8b5cf6, #ec4899, #10b981, #f59e0b);
+    opacity: 0.2;
+    border-radius: inherit;
+    animation: celebrationBorder 6s linear infinite;
+    background-size: 300% 300%;
+}
+
+/* 闪烁的星星装饰 */
+.ld-theme-default .ld-popup-header.perfect::after {
+    content: '✨';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 16px;
+    animation: sparkleFloat 2s ease-in-out infinite;
+}
+
+.ld-theme-default .ld-popup-header.perfect .ld-username {
+    color: #065f46;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(6, 95, 70, 0.3);
+}
+
+.ld-theme-default .ld-popup-header.perfect .ld-level-badge {
+    background: linear-gradient(135deg, #10b981, #059669, #10b981);
+    background-size: 200% 200%;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.6), 0 0 40px rgba(16, 185, 129, 0.3);
+    animation: badgePulse 2s ease-in-out infinite, badgeShine 3s linear infinite;
+    position: relative;
+}
+
+/* 徽章光晕效果 */
+.ld-theme-default .ld-popup-header.perfect .ld-level-badge::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(45deg, #fbbf24, #ec4899, #8b5cf6, #fbbf24);
+    border-radius: inherit;
+    z-index: -1;
+    animation: badgeGlow 2s linear infinite;
+    background-size: 200% 200%;
+    opacity: 0.7;
+}
+
+/* 彩虹进度条 */
+.ld-theme-default .ld-popup-header.perfect .ld-progress-fill {
+    background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #10b981);
+    background-size: 300% 100%;
+    animation: rainbowProgress 3s linear infinite;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    position: relative;
+}
+
+/* 进度条闪光效果 */
+.ld-theme-default .ld-popup-header.perfect .ld-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: progressShine 2s ease-in-out infinite;
+}
+
+/* 已完成项目的庆祝样式 */
+.ld-theme-default .ld-detail-item.passed {
+    background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+    border: 1px solid #a7f3d0;
+    border-radius: 8px;
+    position: relative;
+}
+
+/* 满级状态下的整体body区域 - 与header背景融合（粉紫渐变） */
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body {
+    background: linear-gradient(180deg, #fce7f3 0%, #ede9fe 50%, #e0e7ff 100%);
+    position: relative;
+}
+
+/* body区域的微妙光效 */
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* 满级状态下的列表项 */
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(236, 72, 153, 0.3);
+    border-radius: 10px;
+    animation: itemCelebrate 0.5s ease-out backwards;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 每个项目的延迟动画 */
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed:nth-child(1) { animation-delay: 0.05s; }
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed:nth-child(2) { animation-delay: 0.1s; }
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed:nth-child(3) { animation-delay: 0.15s; }
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed:nth-child(4) { animation-delay: 0.2s; }
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed:nth-child(5) { animation-delay: 0.25s; }
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed:nth-child(6) { animation-delay: 0.3s; }
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed:nth-child(7) { animation-delay: 0.35s; }
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed:nth-child(8) { animation-delay: 0.4s; }
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed:nth-child(9) { animation-delay: 0.45s; }
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed:nth-child(10) { animation-delay: 0.5s; }
+
+/* 列表项的流光效果 */
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(236, 72, 153, 0.1),
+        rgba(255, 255, 255, 0.3),
+        rgba(139, 92, 246, 0.1),
+        transparent);
+    animation: itemShine 4s ease-in-out infinite;
+    animation-delay: inherit;
+}
+
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed:hover {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+    transform: translateX(4px);
+}
+
+/* 满级状态下的数值 - 达成用绿色 */
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed .ld-detail-current {
+    color: #059669;
+    font-weight: 600;
+}
+
+/* 满级footer区域 */
+.ld-theme-default .ld-popup-header.perfect ~ .ld-popup-body ~ .ld-popup-footer {
+    background: linear-gradient(135deg, #e0e7ff, #ede9fe);
+    border-top-color: rgba(139, 92, 246, 0.2);
+}
+
+/* ==================== 庆祝动画 ==================== */
+@keyframes celebrationBorder {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes celebrationBorderRotate {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.6), 0 0 40px rgba(16, 185, 129, 0.3);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(16, 185, 129, 0.8), 0 0 60px rgba(16, 185, 129, 0.4);
+        transform: scale(1.05);
+    }
+}
+
+@keyframes badgeShine {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+@keyframes badgeGlow {
+    0% { background-position: 0% 50%; opacity: 0.5; }
+    50% { background-position: 100% 50%; opacity: 0.8; }
+    100% { background-position: 200% 50%; opacity: 0.5; }
+}
+
+@keyframes rainbowProgress {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+}
+
+@keyframes progressShine {
+    0% { left: -100%; }
+    50%, 100% { left: 200%; }
+}
+
+@keyframes sparkleFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(-3px) rotate(10deg) scale(1.1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-5px) rotate(-5deg) scale(1);
+        opacity: 1;
+    }
+    75% {
+        transform: translateY(-2px) rotate(5deg) scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+@keyframes itemCelebrate {
+    0% {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes itemShine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
+}
+
+/* ==================== Credit 面板基础样式 ==================== */
+
+/* Credit 头部 */
+.ld-credit-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: linear-gradient(135deg, #e0f2fe, #dbeafe);
+    border-bottom: 1px solid #bae6fd;
+}
+
+.ld-credit-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ld-credit-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.ld-credit-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ld-credit-username {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e3a5f;
+}
+
+.ld-credit-subtitle {
+    font-size: 11px;
+    color: #64748b;
+}
+
+.ld-credit-link {
+    font-size: 12px;
+    color: #0284c7 !important;
+    text-decoration: none !important;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.ld-credit-link:hover {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Credit 主体 */
+.ld-credit-body {
+    padding: 12px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.ld-credit-main-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.ld-credit-main-label {
+    font-size: 13px;
+    color: #475569;
+}
+
+.ld-credit-main-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0284c7;
+}
+
+.ld-credit-stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.ld-credit-stat-label {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.ld-credit-stat-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.ld-credit-stat-value.income {
+    color: #16a34a;
+}
+
+.ld-credit-stat-value.expense {
+    color: #dc2626;
+}
+
+/* Credit 分区 */
+.ld-credit-section {
+    margin-top: 12px;
+}
+
+.ld-credit-section-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    padding-left: 4px;
+}
+
+/* Credit 活动列表 */
+.ld-credit-activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ld-credit-activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #f8fafc;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.ld-credit-activity-date {
+    color: #94a3b8;
+}
+
+.ld-credit-activity-amount {
+    font-weight: 600;
+}
+
+.ld-credit-activity-amount.positive {
+    color: #16a34a;
+}
+
+.ld-credit-activity-amount.negative {
+    color: #dc2626;
+}
+
+.ld-credit-empty {
+    text-align: center;
+    padding: 12px;
+    color: #94a3b8;
+    font-size: 12px;
+    background: #f8fafc;
+    border-radius: 6px;
+}
+
+/* Credit 错误状态 */
+.ld-credit-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.ld-credit-error-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.ld-credit-error-msg {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 16px;
+}
+
+.ld-credit-login-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(14, 165, 233, 0.3);
+}
+
+.ld-credit-login-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+}
+
+/* Credit 滚动条 */
+.ld-credit-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ld-credit-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ld-credit-body::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.ld-credit-body::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}

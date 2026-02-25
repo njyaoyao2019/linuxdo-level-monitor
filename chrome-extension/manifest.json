@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Linux.do 等级监控",
+  "version": "6.2.0",
+  "description": "Linux.do 用户等级监控浮窗，支持多种游戏主题风格切换，集成 Credit 积分查看",
+  "author": "YaoYao",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://linux.do/*",
+    "https://connect.linux.do/*",
+    "https://credit.linux.do/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://linux.do/*"],
+      "exclude_matches": ["https://linux.do/a/*"],
+      "css": [
+        "themes/base.css",
+        "themes/rpg.css",
+        "themes/pixel.css",
+        "themes/card.css",
+        "themes/cyber.css"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["themes/*.css", "icons/*"],
+      "matches": ["https://linux.do/*"]
+    }
+  ]
+}

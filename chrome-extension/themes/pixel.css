@@ -1,0 +1,573 @@
+/**
+ * 像素复古主题 - Linux 终端风格 (深蓝底+亮绿色)
+ */
+
+/* ==================== 浮动按钮 ==================== */
+.ld-theme-pixel .ld-floating-btn {
+    background: #0a0a1a;
+    border: 3px solid #1a3a1a;
+    border-right: none;
+    border-radius: 0;
+    box-shadow: 4px 4px 0 #000;
+}
+
+.ld-theme-pixel .ld-floating-btn:hover {
+    background: #0f1a2a;
+    border-color: #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.ld-theme-pixel .ld-btn-icon {
+    color: #00ff00;
+}
+
+.ld-theme-pixel .ld-btn-level {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.ld-theme-pixel .ld-btn-progress-bar {
+    background: #0a0a1a;
+    border: 1px solid #00aa00;
+    border-radius: 0;
+    height: 6px;
+}
+
+.ld-theme-pixel .ld-btn-progress-fill {
+    background: #00ff00;
+    border-radius: 0;
+    box-shadow: 0 0 5px #00ff00;
+}
+
+.ld-theme-pixel .ld-btn-stats {
+    color: #00cc00;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+}
+
+.ld-theme-pixel .ld-btn-credit {
+    color: #00ccff;
+    font-family: 'Courier New', monospace;
+    font-size: 8px;
+    text-shadow: 0 0 5px #00ccff;
+    border-top-color: #00aa00;
+}
+
+.ld-theme-pixel .ld-btn-theme {
+    background: #0a0a1a;
+    border-radius: 0;
+    border: 1px solid #00aa00;
+}
+
+/* ==================== 标签栏 - 终端风格 ==================== */
+.ld-theme-pixel .ld-tabs {
+    background: #0f1a2a;
+    border-bottom: 2px solid #00aa00;
+    padding: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+.ld-theme-pixel .ld-tab {
+    color: #00cc00;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+}
+
+.ld-theme-pixel .ld-tab::before {
+    content: '[ ';
+    color: #00aa00;
+}
+
+.ld-theme-pixel .ld-tab::after {
+    content: ' ]';
+    color: #00aa00;
+}
+
+.ld-theme-pixel .ld-tab:hover {
+    color: #00ff00;
+    background: rgba(0, 255, 0, 0.05);
+}
+
+.ld-theme-pixel .ld-tab.active {
+    color: #00ff00;
+    background: rgba(0, 255, 0, 0.1);
+    border-color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+/* ==================== 弹出窗口 ==================== */
+.ld-theme-pixel .ld-popup {
+    background: #0a0a1a;
+    border: 3px solid #00aa00;
+    border-radius: 0;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+/* ==================== 头部 ==================== */
+.ld-theme-pixel .ld-popup-header {
+    background: #0f1a2a;
+    border-bottom: 2px solid #00aa00;
+    padding: 12px;
+}
+
+.ld-theme-pixel .ld-popup-header::before {
+    content: 'user@linux.do:~$ ';
+    color: #00cc00;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.ld-theme-pixel .ld-popup-header.perfect {
+    background: #0f1a2a;
+}
+
+.ld-theme-pixel .ld-popup-header.perfect::before {
+    content: 'root@linux.do:~# [MAX_LEVEL] ';
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.ld-theme-pixel .ld-username {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.ld-theme-pixel .ld-level-badge {
+    background: transparent;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    border-radius: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+}
+
+.ld-theme-pixel .ld-popup-header.perfect .ld-level-badge {
+    background: #00ff00;
+    color: #0a0a1a;
+    text-shadow: none;
+}
+
+/* 进度条 */
+.ld-theme-pixel .ld-progress-label {
+    color: #00cc00;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+}
+
+.ld-theme-pixel .ld-progress-bar {
+    background: #0a0a1a;
+    border: 1px solid #00aa00;
+    border-radius: 0;
+    height: 12px;
+}
+
+.ld-theme-pixel .ld-progress-fill {
+    background: #00ff00;
+    border-radius: 0;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.ld-theme-pixel .ld-progress-fill.perfect {
+    background: #00ff00;
+    animation: pixelGlow 1s ease-in-out infinite;
+}
+
+/* ==================== 详情列表 ==================== */
+.ld-theme-pixel .ld-popup-body {
+    background: #0a0a1a;
+    padding: 8px;
+}
+
+.ld-theme-pixel .ld-detail-item {
+    background: #0f1a2a;
+    border: 1px solid #1a3a1a;
+    border-radius: 0;
+    padding: 8px 10px;
+    margin-bottom: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+.ld-theme-pixel .ld-detail-item::before {
+    content: '> ';
+    color: #00aa00;
+}
+
+.ld-theme-pixel .ld-detail-item:hover {
+    background: #1a2a3a;
+    border-color: #00ff00;
+}
+
+.ld-theme-pixel .ld-detail-item.passed {
+    border-color: #00ff00;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+}
+
+.ld-theme-pixel .ld-detail-item.failed {
+    border-color: #aa0000;
+}
+
+.ld-theme-pixel .ld-detail-label {
+    color: #00cc00;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+}
+
+.ld-theme-pixel .ld-detail-current {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    text-shadow: 0 0 3px rgba(0, 255, 0, 0.5);
+}
+
+.ld-theme-pixel .ld-detail-item.passed .ld-detail-current {
+    color: #00ff00;
+}
+
+.ld-theme-pixel .ld-detail-item.failed .ld-detail-current {
+    color: #ff4444;
+}
+
+.ld-theme-pixel .ld-detail-separator {
+    color: #00aa00;
+    font-family: 'Courier New', monospace;
+}
+
+.ld-theme-pixel .ld-detail-required {
+    color: #00cc00;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+}
+
+.ld-theme-pixel .ld-detail-status {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    white-space: nowrap;
+    font-size: 0; /* 隐藏原有的 ✓ ✗ 文字 */
+}
+
+.ld-theme-pixel .ld-detail-item.passed .ld-detail-status {
+    color: #00ff00;
+    min-width: 36px;
+    text-align: center;
+}
+
+.ld-theme-pixel .ld-detail-item.passed .ld-detail-status::before {
+    content: '[OK]';
+    font-size: 12px; /* 恢复伪元素字体大小 */
+}
+
+/* 隐藏原有的勾号图标 */
+.ld-theme-pixel .ld-detail-item.passed .ld-detail-status svg,
+.ld-theme-pixel .ld-detail-item.failed .ld-detail-status svg {
+    display: none;
+}
+
+.ld-theme-pixel .ld-detail-item.failed .ld-detail-status {
+    color: #ff4444;
+    min-width: 36px;
+    text-align: center;
+}
+
+.ld-theme-pixel .ld-detail-item.failed .ld-detail-status::before {
+    content: '[--]';
+    font-size: 12px; /* 恢复伪元素字体大小 */
+}
+
+/* ==================== 底部 ==================== */
+.ld-theme-pixel .ld-popup-footer {
+    background: #0f1a2a;
+    border-top: 2px solid #00aa00;
+}
+
+.ld-theme-pixel .ld-update-time {
+    color: #00aa00;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+}
+
+.ld-theme-pixel .ld-refresh-btn {
+    background: transparent;
+    border: 1px solid #00ff00;
+    border-radius: 0;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+}
+
+.ld-theme-pixel .ld-refresh-btn:hover {
+    background: #00ff00;
+    color: #0a0a1a;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* ==================== Linux 打字动画效果 ==================== */
+.ld-theme-pixel .ld-detail-item {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 打字效果容器 */
+.ld-theme-pixel .ld-detail-item .ld-detail-label {
+    position: relative;
+    display: inline-block;
+}
+
+/* hover 时的打字光标效果 - 跟随文字 */
+.ld-theme-pixel .ld-detail-item .ld-detail-label::after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background: #00ff00;
+    margin-left: 2px;
+    vertical-align: middle;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.ld-theme-pixel .ld-detail-item:hover .ld-detail-label::after {
+    opacity: 1;
+    animation: pixelCursorBlink 0.8s step-end infinite;
+}
+
+/* 打字效果 - 文字逐渐显示 */
+.ld-theme-pixel .ld-detail-item .ld-detail-label {
+    overflow: hidden;
+}
+
+.ld-theme-pixel .ld-detail-item:hover .ld-detail-label {
+    animation: pixelTypewriter 0.5s steps(20) forwards;
+}
+
+/* ==================== 动画 ==================== */
+@keyframes pixelCursorBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@keyframes pixelTypewriter {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes pixelGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 0, 0.8); }
+}
+
+/* ==================== 滚动条 ==================== */
+.ld-theme-pixel .ld-popup-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ld-theme-pixel .ld-popup-body::-webkit-scrollbar-thumb {
+    background: #00aa00;
+}
+
+.ld-theme-pixel .ld-popup-body::-webkit-scrollbar-track {
+    background: #0a0a1a;
+}
+
+/* ==================== Credit 面板 - Linux 终端风格 ==================== */
+.ld-theme-pixel .ld-credit-header {
+    background: #0f1a2a;
+    border-bottom: 2px solid #00aa00;
+}
+
+.ld-theme-pixel .ld-credit-header::before {
+    content: 'credit@linux.do:~$ ';
+    position: absolute;
+    top: 4px;
+    left: 8px;
+    color: #00cc00;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+}
+
+.ld-theme-pixel .ld-credit-avatar {
+    background: #0a0a1a;
+    border: 2px solid #00ff00;
+    border-radius: 0;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+}
+
+.ld-theme-pixel .ld-credit-username {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.ld-theme-pixel .ld-credit-subtitle {
+    color: #00aa00;
+    font-family: 'Courier New', monospace;
+}
+
+.ld-theme-pixel .ld-credit-link {
+    color: #00ff00 !important;
+    background: transparent;
+    border: 1px solid #00ff00;
+    border-radius: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+}
+
+.ld-theme-pixel .ld-credit-link:hover {
+    background: #00ff00;
+    color: #0a0a1a !important;
+}
+
+.ld-theme-pixel .ld-credit-body {
+    background: #0a0a1a;
+}
+
+.ld-theme-pixel .ld-credit-main-stat {
+    background: #0f1a2a;
+    border: 1px solid #00aa00;
+    border-radius: 0;
+}
+
+.ld-theme-pixel .ld-credit-main-label {
+    color: #00cc00;
+    font-family: 'Courier New', monospace;
+}
+
+.ld-theme-pixel .ld-credit-main-label::before {
+    content: '$ ';
+    color: #00aa00;
+}
+
+.ld-theme-pixel .ld-credit-main-value {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.ld-theme-pixel .ld-credit-stat-row {
+    background: #0f1a2a;
+    border: 1px solid #1a3a1a;
+    border-radius: 0;
+    font-family: 'Courier New', monospace;
+}
+
+.ld-theme-pixel .ld-credit-stat-row::before {
+    content: '> ';
+    color: #00aa00;
+    margin-right: 4px;
+}
+
+.ld-theme-pixel .ld-credit-stat-label {
+    color: #00cc00;
+    font-family: 'Courier New', monospace;
+}
+
+.ld-theme-pixel .ld-credit-stat-value {
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+}
+
+.ld-theme-pixel .ld-credit-stat-value.income {
+    color: #00ff00;
+}
+
+.ld-theme-pixel .ld-credit-stat-value.expense {
+    color: #ff4444;
+}
+
+.ld-theme-pixel .ld-credit-section-title {
+    color: #00aa00;
+    font-family: 'Courier New', monospace;
+    text-transform: none;
+}
+
+.ld-theme-pixel .ld-credit-section-title::before {
+    content: '# ';
+}
+
+.ld-theme-pixel .ld-credit-activity-item {
+    background: #0f1a2a;
+    border: 1px solid #1a3a1a;
+    border-radius: 0;
+    font-family: 'Courier New', monospace;
+}
+
+.ld-theme-pixel .ld-credit-activity-date {
+    color: #00aa00;
+    font-family: 'Courier New', monospace;
+}
+
+.ld-theme-pixel .ld-credit-activity-amount {
+    font-family: 'Courier New', monospace;
+}
+
+.ld-theme-pixel .ld-credit-activity-amount.positive {
+    color: #00ff00;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.ld-theme-pixel .ld-credit-activity-amount.negative {
+    color: #ff4444;
+}
+
+.ld-theme-pixel .ld-credit-empty {
+    background: #0f1a2a;
+    border: 1px solid #1a3a1a;
+    border-radius: 0;
+    color: #00aa00;
+    font-family: 'Courier New', monospace;
+}
+
+.ld-theme-pixel .ld-credit-empty::before {
+    content: '// ';
+}
+
+.ld-theme-pixel .ld-credit-error {
+    background: #0a0a1a;
+}
+
+.ld-theme-pixel .ld-credit-error-msg {
+    color: #00cc00;
+    font-family: 'Courier New', monospace;
+}
+
+.ld-theme-pixel .ld-credit-error-msg::before {
+    content: 'ERROR: ';
+    color: #ff4444;
+}
+
+.ld-theme-pixel .ld-credit-login-btn {
+    background: transparent;
+    border: 1px solid #00ff00;
+    border-radius: 0;
+    color: #00ff00 !important;
+    font-family: 'Courier New', monospace;
+    box-shadow: none;
+}
+
+.ld-theme-pixel .ld-credit-login-btn:hover {
+    background: #00ff00;
+    color: #0a0a1a !important;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.ld-theme-pixel .ld-credit-body::-webkit-scrollbar-thumb {
+    background: #00aa00;
+}
+
+.ld-theme-pixel .ld-credit-body::-webkit-scrollbar-track {
+    background: #0a0a1a;
+}

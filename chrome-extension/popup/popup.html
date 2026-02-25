@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux.do 等级监控</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <header class="popup-header">
+            <h1>
+                <span class="logo">L</span>
+                等级监控
+            </h1>
+            <span class="version" id="ext-version"></span>
+        </header>
+
+        <section class="theme-section">
+            <h2>选择主题</h2>
+            <div class="theme-grid">
+                <button class="theme-btn" data-theme="default">
+                    <span class="theme-icon">🎨</span>
+                    <span class="theme-name">默认</span>
+                </button>
+                <button class="theme-btn" data-theme="rpg">
+                    <span class="theme-icon">⚔️</span>
+                    <span class="theme-name">RPG</span>
+                </button>
+                <button class="theme-btn" data-theme="pixel">
+                    <span class="theme-icon">👾</span>
+                    <span class="theme-name">像素</span>
+                </button>
+                <button class="theme-btn" data-theme="card">
+                    <span class="theme-icon">🃏</span>
+                    <span class="theme-name">卡牌</span>
+                </button>
+                <button class="theme-btn" data-theme="cyber">
+                    <span class="theme-icon">🌆</span>
+                    <span class="theme-name">赛博</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>使用说明</h2>
+            <ul class="tips-list">
+                <li>访问 <a href="https://linux.do" target="_blank">linux.do</a> 自动显示浮窗</li>
+                <li>鼠标悬停浮窗按钮查看详情</li>
+                <li>点击按钮上的主题图标快速切换</li>
+            </ul>
+        </section>
+
+        <footer class="popup-footer">
+            <a href="https://linux.do" target="_blank">linux.do</a>
+            <span>•</span>
+            <a href="https://connect.linux.do" target="_blank">connect</a>
+        </footer>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

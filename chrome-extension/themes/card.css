@@ -1,0 +1,731 @@
+/**
+ * 卡牌收集主题 - 每行数据都是一张精美的横向小卡牌
+ * 特色：装饰边框、稀有度宝石、悬停浮起、闪光动画
+ */
+
+/* ==================== 浮动按钮 ==================== */
+.ld-theme-card .ld-floating-btn {
+    background: linear-gradient(145deg, #1a1a2e, #0d0d1a);
+    border: 3px solid transparent;
+    border-image: linear-gradient(135deg, #9333ea, #c084fc, #9333ea) 1;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3);
+}
+
+.ld-theme-card .ld-floating-btn:hover {
+    box-shadow: 0 0 25px rgba(147, 51, 234, 0.6);
+}
+
+.ld-theme-card .ld-btn-icon {
+    color: #c084fc;
+}
+
+.ld-theme-card .ld-btn-level {
+    background: linear-gradient(135deg, #c084fc, #9333ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+}
+
+.ld-theme-card .ld-btn-progress-bar {
+    background: #2d2d44;
+    border: 1px solid #4a4a6a;
+    border-radius: 4px;
+}
+
+.ld-theme-card .ld-btn-progress-fill {
+    background: linear-gradient(90deg, #9333ea, #c084fc, #9333ea);
+    background-size: 200% 100%;
+    animation: cardShine 3s ease infinite;
+}
+
+.ld-theme-card .ld-btn-stats {
+    color: #a78bfa;
+}
+
+.ld-theme-card .ld-btn-credit {
+    color: #fbbf24;
+    font-size: 8px;
+    text-shadow: 0 0 5px rgba(251, 191, 36, 0.5);
+    border-top-color: #4a4a6a;
+}
+
+/* ==================== 标签栏 - 卡牌稀有度风格 ==================== */
+.ld-theme-card .ld-tabs {
+    background: linear-gradient(180deg, #1e1b2e, #13111a);
+    border-bottom: 2px solid #2d2d44;
+    padding: 6px;
+}
+
+.ld-theme-card .ld-tab {
+    color: #a0a0c0;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.ld-theme-card .ld-tab:hover {
+    color: #c084fc;
+    background: rgba(147, 51, 234, 0.1);
+}
+
+.ld-theme-card .ld-tab.active {
+    color: #c084fc;
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(124, 58, 237, 0.1));
+    border-color: #9333ea;
+    box-shadow: 0 0 10px rgba(147, 51, 234, 0.3);
+}
+
+/* ==================== 弹出窗口 - 卡牌盒子 ==================== */
+.ld-theme-card .ld-popup {
+    background: linear-gradient(180deg, #13111a 0%, #0a0910 100%);
+    border: 3px solid #2d2d44;
+    border-radius: 16px;
+    box-shadow:
+        0 0 0 1px rgba(147, 51, 234, 0.3),
+        0 10px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* 卡牌盒子装饰角 */
+.ld-theme-card .ld-popup::before,
+.ld-theme-card .ld-popup::after {
+    content: '◆';
+    position: absolute;
+    font-size: 12px;
+    color: #9333ea;
+    text-shadow: 0 0 10px #9333ea;
+    z-index: 10;
+}
+
+.ld-theme-card .ld-popup::before {
+    top: 8px;
+    left: 12px;
+}
+
+.ld-theme-card .ld-popup::after {
+    top: 8px;
+    right: 12px;
+}
+
+/* 满级状态 - 传说金边 */
+.ld-theme-card .ld-popup:has(.ld-popup-header.perfect) {
+    border-color: #fbbf24;
+    box-shadow:
+        0 0 0 1px rgba(251, 191, 36, 0.5),
+        0 0 30px rgba(251, 191, 36, 0.3),
+        0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.ld-theme-card .ld-popup:has(.ld-popup-header.perfect)::before,
+.ld-theme-card .ld-popup:has(.ld-popup-header.perfect)::after {
+    content: '✦';
+    color: #fbbf24;
+    text-shadow: 0 0 10px #fbbf24;
+    animation: cardStarTwinkle 1.5s ease-in-out infinite;
+}
+
+/* ==================== 头部 - 卡牌标题区 ==================== */
+.ld-theme-card .ld-popup-header {
+    background: linear-gradient(180deg, #1e1b2e 0%, #13111a 100%);
+    border-bottom: 2px solid #2d2d44;
+    padding: 20px 16px 16px;
+    position: relative;
+}
+
+/* 头部装饰线 */
+.ld-theme-card .ld-popup-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #9333ea, transparent);
+}
+
+.ld-theme-card .ld-popup-header.perfect::after {
+    background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+}
+
+.ld-theme-card .ld-username {
+    color: #e0e0f0;
+    font-size: 18px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 等级徽章 - 稀有度标识 */
+.ld-theme-card .ld-level-badge {
+    background: linear-gradient(135deg, #9333ea, #7c3aed);
+    border: 2px solid #a855f7;
+    color: white;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    box-shadow: 0 0 15px rgba(147, 51, 234, 0.4);
+    position: relative;
+}
+
+/* 徽章光效 */
+.ld-theme-card .ld-level-badge::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, #c084fc, #9333ea, #c084fc);
+    border-radius: 6px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.ld-theme-card .ld-level-badge:hover::before {
+    opacity: 1;
+    animation: cardBadgeGlow 1s ease infinite;
+}
+
+.ld-theme-card .ld-popup-header.perfect .ld-level-badge {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border-color: #fbbf24;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+}
+
+/* 进度条 - 收集进度 */
+.ld-theme-card .ld-progress-label {
+    color: #a0a0c0;
+    font-size: 12px;
+}
+
+.ld-theme-card .ld-progress-label span:last-child {
+    color: #c084fc;
+    font-weight: 600;
+}
+
+.ld-theme-card .ld-progress-bar {
+    background: #1a1a2e;
+    border: 2px solid #2d2d44;
+    border-radius: 8px;
+    height: 14px;
+    overflow: hidden;
+    position: relative;
+}
+
+.ld-theme-card .ld-progress-fill {
+    background: linear-gradient(90deg, #7c3aed, #9333ea, #a855f7);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 进度条流光 */
+.ld-theme-card .ld-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: cardProgressShine 2s ease-in-out infinite;
+}
+
+.ld-theme-card .ld-progress-fill.perfect {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24, #fcd34d, #fbbf24, #f59e0b);
+    background-size: 200% 100%;
+    animation: cardGoldFlow 2s linear infinite;
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+}
+
+/* ==================== 详情列表 - 卡牌收藏区 ==================== */
+.ld-theme-card .ld-popup-body {
+    background: linear-gradient(180deg, #0f0e17 0%, #0a0910 100%);
+    padding: 12px;
+}
+
+.ld-theme-card .ld-details-list {
+    gap: 10px;
+}
+
+/* ==================== 核心：每行数据 = 一张小卡牌 ==================== */
+.ld-theme-card .ld-detail-item {
+    background: linear-gradient(135deg, #1e1b2e 0%, #16141f 100%);
+    border: 2px solid #2d2d44;
+    border-radius: 10px;
+    padding: 12px 14px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+/* 卡牌内边框装饰 */
+.ld-theme-card .ld-detail-item::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid rgba(147, 51, 234, 0.2);
+    border-radius: 7px;
+    pointer-events: none;
+}
+
+/* 卡牌左侧稀有度宝石 */
+.ld-theme-card .ld-detail-item::after {
+    content: '◇';
+    position: absolute;
+    left: -1px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: #4a4a6a;
+    text-shadow: 0 0 5px currentColor;
+}
+
+/* ====== 已达成卡牌 - 史诗紫 ====== */
+.ld-theme-card .ld-detail-item.passed {
+    border-color: #9333ea;
+    box-shadow:
+        0 0 0 1px rgba(147, 51, 234, 0.3),
+        0 4px 15px rgba(147, 51, 234, 0.2);
+}
+
+.ld-theme-card .ld-detail-item.passed::before {
+    border-color: rgba(147, 51, 234, 0.4);
+}
+
+.ld-theme-card .ld-detail-item.passed::after {
+    content: '◆';
+    color: #a855f7;
+    font-size: 12px;
+    animation: cardGemPulse 2s ease-in-out infinite;
+}
+
+/* ====== 未达成卡牌 - 普通灰 ====== */
+.ld-theme-card .ld-detail-item.failed {
+    border-color: #3d3d50;
+    opacity: 0.85;
+}
+
+.ld-theme-card .ld-detail-item.failed::after {
+    content: '◇';
+    color: #4a4a6a;
+}
+
+/* ====== 悬停效果 - 卡牌浮起 ====== */
+.ld-theme-card .ld-detail-item:hover {
+    transform: translateY(-3px) translateX(2px);
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(147, 51, 234, 0.3);
+}
+
+.ld-theme-card .ld-detail-item.passed:hover {
+    border-color: #a855f7;
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(147, 51, 234, 0.5);
+}
+
+/* 悬停时的闪光效果 */
+.ld-theme-card .ld-detail-item:hover::before {
+    animation: cardInnerGlow 0.6s ease;
+}
+
+/* ==================== 卡牌内文字样式 ==================== */
+.ld-theme-card .ld-detail-label {
+    color: #b0b0c0;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.ld-theme-card .ld-detail-value {
+    font-size: 13px;
+}
+
+.ld-theme-card .ld-detail-current {
+    color: #e0e0f0;
+    font-weight: 600;
+}
+
+.ld-theme-card .ld-detail-item.passed .ld-detail-current {
+    color: #c084fc;
+    text-shadow: 0 0 8px rgba(192, 132, 252, 0.5);
+}
+
+.ld-theme-card .ld-detail-item.failed .ld-detail-current {
+    color: #f87171;
+}
+
+.ld-theme-card .ld-detail-separator {
+    color: #6b6b80;
+}
+
+.ld-theme-card .ld-detail-required {
+    color: #9090a0;
+}
+
+/* ==================== 状态图标 ==================== */
+.ld-theme-card .ld-detail-status {
+    font-size: 0;
+    min-width: 24px;
+    text-align: center;
+}
+
+.ld-theme-card .ld-detail-item.passed .ld-detail-status::before {
+    content: '✦';
+    font-size: 16px;
+    color: #a855f7;
+    text-shadow: 0 0 10px #a855f7;
+    display: inline-block;
+}
+
+.ld-theme-card .ld-detail-item.passed:hover .ld-detail-status::before {
+    animation: cardStarSpin 0.8s ease-in-out;
+}
+
+.ld-theme-card .ld-detail-item.failed .ld-detail-status::before {
+    content: '✧';
+    font-size: 16px;
+    color: #4a4a6a;
+}
+
+/* ==================== 满级特殊效果 - 全息闪卡 ==================== */
+.ld-theme-card .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed {
+    border-color: #fbbf24;
+    background: linear-gradient(135deg, #1f1a10 0%, #181510 100%);
+}
+
+.ld-theme-card .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed::before {
+    border-color: rgba(251, 191, 36, 0.3);
+}
+
+.ld-theme-card .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed::after {
+    content: '✦';
+    color: #fbbf24;
+    animation: cardGemPulse 1.5s ease-in-out infinite;
+}
+
+.ld-theme-card .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed .ld-detail-current {
+    color: #fcd34d;
+    text-shadow: 0 0 10px rgba(252, 211, 77, 0.6);
+}
+
+.ld-theme-card .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed .ld-detail-status::before {
+    color: #fbbf24;
+    text-shadow: 0 0 12px #fbbf24;
+}
+
+/* 全息流光效果 */
+.ld-theme-card .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed {
+    overflow: hidden;
+}
+
+.ld-theme-card .ld-popup-header.perfect ~ .ld-popup-body .ld-detail-item.passed .ld-detail-label::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.1), transparent);
+    animation: cardHoloShine 3s ease-in-out infinite;
+}
+
+/* ==================== 底部 ==================== */
+.ld-theme-card .ld-popup-footer {
+    background: linear-gradient(180deg, #13111a 0%, #0a0910 100%);
+    border-top: 2px solid #2d2d44;
+    position: relative;
+}
+
+.ld-theme-card .ld-popup-footer::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #9333ea40, transparent);
+}
+
+.ld-theme-card .ld-update-time {
+    color: #6b6b80;
+    font-size: 11px;
+}
+
+.ld-theme-card .ld-refresh-btn {
+    background: linear-gradient(135deg, #2d2d44, #1e1e30);
+    border: 2px solid #3d3d50;
+    color: #c084fc;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.ld-theme-card .ld-refresh-btn:hover {
+    border-color: #9333ea;
+    box-shadow: 0 0 15px rgba(147, 51, 234, 0.4);
+    color: #e0e0f0;
+}
+
+/* ==================== 动画 ==================== */
+@keyframes cardShine {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+@keyframes cardProgressShine {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+@keyframes cardGoldFlow {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes cardBadgeGlow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+@keyframes cardStarTwinkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes cardGemPulse {
+    0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 5px currentColor;
+    }
+    50% {
+        opacity: 0.7;
+        text-shadow: 0 0 12px currentColor;
+    }
+}
+
+@keyframes cardInnerGlow {
+    0% { border-color: rgba(147, 51, 234, 0.2); }
+    50% { border-color: rgba(147, 51, 234, 0.6); }
+    100% { border-color: rgba(147, 51, 234, 0.2); }
+}
+
+@keyframes cardStarSpin {
+    0% { transform: rotateY(0deg) scale(1); }
+    50% {
+        transform: rotateY(180deg) scale(1.2);
+        text-shadow: 0 0 20px currentColor;
+    }
+    100% { transform: rotateY(360deg) scale(1); }
+}
+
+@keyframes cardHoloShine {
+    0% { left: -100%; }
+    50%, 100% { left: 200%; }
+}
+
+/* ==================== 滚动条 ==================== */
+.ld-theme-card .ld-popup-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ld-theme-card .ld-popup-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #9333ea, #7c3aed);
+    border-radius: 3px;
+}
+
+.ld-theme-card .ld-popup-body::-webkit-scrollbar-track {
+    background: #13111a;
+}
+
+/* ==================== Credit 面板 - 金币宝藏卡风格 ==================== */
+.ld-theme-card .ld-credit-header {
+    background: linear-gradient(180deg, #1e1b2e 0%, #13111a 100%);
+    border-bottom: 2px solid #fbbf24;
+    position: relative;
+}
+
+.ld-theme-card .ld-credit-header::before {
+    content: '✦';
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    font-size: 12px;
+    color: #fbbf24;
+    text-shadow: 0 0 10px #fbbf24;
+    animation: cardStarTwinkle 1.5s ease-in-out infinite;
+}
+
+.ld-theme-card .ld-credit-header::after {
+    content: '✦';
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 12px;
+    color: #fbbf24;
+    text-shadow: 0 0 10px #fbbf24;
+    animation: cardStarTwinkle 1.5s ease-in-out infinite 0.75s;
+}
+
+.ld-theme-card .ld-credit-avatar {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border: 2px solid #fbbf24;
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+}
+
+.ld-theme-card .ld-credit-username {
+    color: #fcd34d;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ld-theme-card .ld-credit-subtitle {
+    color: #a0a0c0;
+}
+
+.ld-theme-card .ld-credit-link {
+    color: #fbbf24 !important;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.ld-theme-card .ld-credit-link:hover {
+    background: rgba(251, 191, 36, 0.2);
+    border-color: #fbbf24;
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+}
+
+.ld-theme-card .ld-credit-body {
+    background: linear-gradient(180deg, #0f0e17 0%, #0a0910 100%);
+}
+
+.ld-theme-card .ld-credit-main-stat {
+    background: linear-gradient(135deg, #1f1a10 0%, #181510 100%);
+    border: 2px solid #fbbf24;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 金币卡片的闪光效果 */
+.ld-theme-card .ld-credit-main-stat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.2), transparent);
+    animation: cardHoloShine 3s ease-in-out infinite;
+}
+
+.ld-theme-card .ld-credit-main-label {
+    color: #a0a0c0;
+}
+
+.ld-theme-card .ld-credit-main-value {
+    color: #fbbf24;
+    text-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+    font-size: 26px;
+}
+
+.ld-theme-card .ld-credit-stat-row {
+    background: linear-gradient(135deg, #1e1b2e 0%, #16141f 100%);
+    border: 1px solid #2d2d44;
+    border-radius: 8px;
+}
+
+.ld-theme-card .ld-credit-stat-row:hover {
+    border-color: #fbbf24;
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.2);
+}
+
+.ld-theme-card .ld-credit-stat-label {
+    color: #a0a0c0;
+}
+
+.ld-theme-card .ld-credit-stat-value {
+    color: #e0e0f0;
+}
+
+.ld-theme-card .ld-credit-stat-value.income {
+    color: #4ade80;
+    text-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
+}
+
+.ld-theme-card .ld-credit-stat-value.expense {
+    color: #f87171;
+}
+
+.ld-theme-card .ld-credit-section-title {
+    color: #fbbf24;
+}
+
+.ld-theme-card .ld-credit-activity-item {
+    background: linear-gradient(135deg, #1e1b2e 0%, #16141f 100%);
+    border: 1px solid #2d2d44;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.ld-theme-card .ld-credit-activity-item:hover {
+    transform: translateY(-2px);
+    border-color: #fbbf24;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.ld-theme-card .ld-credit-activity-date {
+    color: #6b6b80;
+}
+
+.ld-theme-card .ld-credit-activity-amount.positive {
+    color: #4ade80;
+}
+
+.ld-theme-card .ld-credit-activity-amount.negative {
+    color: #f87171;
+}
+
+.ld-theme-card .ld-credit-empty {
+    background: linear-gradient(135deg, #1e1b2e 0%, #16141f 100%);
+    border: 1px solid #2d2d44;
+    color: #6b6b80;
+}
+
+.ld-theme-card .ld-credit-error {
+    background: linear-gradient(180deg, #0f0e17 0%, #0a0910 100%);
+}
+
+.ld-theme-card .ld-credit-error-msg {
+    color: #a0a0c0;
+}
+
+.ld-theme-card .ld-credit-login-btn {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border: 2px solid #fbbf24;
+    color: white !important;
+    font-weight: 700;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+}
+
+.ld-theme-card .ld-credit-login-btn:hover {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.6);
+    transform: translateY(-2px);
+}
+
+.ld-theme-card .ld-credit-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #fbbf24, #d97706);
+}
+
+.ld-theme-card .ld-credit-body::-webkit-scrollbar-track {
+    background: #13111a;
+}
